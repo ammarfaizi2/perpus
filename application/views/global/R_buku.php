@@ -24,8 +24,11 @@
     </div>
 
   </div>
-   <div class="box-body">
+<!--   <div class="box-body">
    <div class="form-group"></div>
+   -->
+   
+   
    <table id="table-buku" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
             <tr>
