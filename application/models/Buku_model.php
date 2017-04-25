@@ -6,10 +6,13 @@ class Buku_model extends CI_Model {
 		$this->qq = explode(' ',$q);
 	}
 	public function kategori($q){
+		if($q=="a.id_buku"){
+			$concat = " ".$q."=".trim(implode(" ",$this->qq));
+		} else {
 		$concat = "";
 		foreach($this->qq as $zx){
 			$concat.=' '.($q).' LIKE \'%'.addslashes(strtolower(trim($zx))).'%\' OR';
-		}
+		}}
 		
 		$this->wheree = ' WHERE'.rtrim($concat,'OR');
 	}
