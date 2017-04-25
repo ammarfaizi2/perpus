@@ -17,17 +17,24 @@ class Buku extends CI_Controller {
 			$data['main_bread']="Data Buku";
 			$data['sub_bread']="Daftar Buku";
 			$data['desc']="Menampilkan Data Buku Perpustakaan";
-
+$q = $this->input->get('q');
+$k = $this->input->get('kat');
+if($q and !empty($q)){
+	$this->Buku_model->search($q);
+	($k and !empty($k)) and
+	$this->Buku_model->kategori($k);
+}
 			/*data yang ditampilkan*/
-			$data['data_buku'] = $this->Buku_model->getAllData("tb_buku");
+		/*	$data['data_buku'] = $this->Buku_model->getAllData("tb_buku");
+			
 			$data['data_kategori'] = $this->Buku_model->getAllData("tb_kategori");
 			$data['data_penerbit'] = $this->Buku_model->getAllData("tb_penerbit");
 			$data['data_pengarang'] = $this->Buku_model->getAllData("tb_pengarang");
 			$data['data_rak'] = $this->Buku_model->getAllData("tb_rak");
-			
+			*/
 			/*masukan data kedalam view */
 			//$data['js']=$this->load->view('admin/buku/js');
-			$tmp['content']=$this->load->view('global/R_buku',$data, TRUE);
+			$tmp['content']=$this->load->view('global/R_buku',array('data_buku'=>$this->Buku_model->getAllData()), TRUE);
 			$this->load->view('global/layout',$tmp);
 		//}
 		//else

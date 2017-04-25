@@ -19,12 +19,22 @@
 <div class="box box-solid box-primary">
   <div class="box-header with-border">
     <h3 class="box-title"><i class="fa fa-book"></i> Daftar Buku</h3>
+<form action="" method="get">
+<select name="kat">
+<option value="a.id_buku">ID Buku</option>
+<option value="a.ISBN">ISBN</option>
+<option value="a.judul">Judul</option>
+</select>
+<input type="text" name="q">
+<input type="submit" value="Cari">
+</form>
+<!--    
     <div class="box-tools pull-right">
     
     </div>
 
   </div>
-<!--   <div class="box-body">
+     <div class="box-body">
    <div class="form-group"></div>
    -->
    
@@ -67,43 +77,16 @@
   $no = 1;
     foreach($data_buku->result_array() as $op)
     {
+    	
     ?>
             <tr>
                 <td><?php echo $no++ ;?></td>
                 <td class="details-control"><i class="btn btn-box-tool" data-toggle="tooltip" title="Tampilkan Detail"><i class="glyphicon glyphicon-plus"></i></i>
                 </td>
-                <td><?php echo $op['id_buku'];?></td>
-                <td><?php echo $op['ISBN'];?></td>
-                <td><?php echo $op['judul'];?></td>
-                <td><?php $kategori=$op['id_kategori'];
-                    foreach ($data_kategori ->result_array()  as $op2) {
-                      if($op2['id_kategori']==$kategori){
-                          echo $op2['kategori'];
-                      }
-                    }?></td>
-                <td><?php $penerbit=$op['id_penerbit'];
-                    foreach ($data_penerbit ->result_array()  as $op2) {
-                      if($op2['id_penerbit']==$penerbit){
-                          echo $op2['nama_penerbit'];
-                      }
-                    }?></td>
-                <td><?php $pengarang=$op['id_pengarang'];
-                    foreach ($data_pengarang->result_array()  as $op2) {
-                      if($op2['id_pengarang']==$pengarang){
-                          echo $op2['nama_pengarang'];
-                      }
-                    }?></td>
-                <td><?php $no_rak=$op['no_rak'];
-                    foreach ($data_rak->result_array()  as $op2) {
-                      if($op2['no_rak']==$no_rak){
-                          echo $op2['nama_rak'];
-                      }
-                    }?></td>
-                <td><?php echo $op['thn_terbit'];?></td>
-                <td><?php echo $op['stok'];?></td>
-                <td><?php echo $op['ket'];?></td>
-            </tr>
+
 <?php
+foreach($op as $qq)
+print "<td>{$qq}</td>";
     }
   ?>            
          </tbody>
