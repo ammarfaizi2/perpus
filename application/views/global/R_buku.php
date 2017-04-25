@@ -16,16 +16,16 @@
         </div>
     </div>
 <!--content -->
-<div class="box box-solid box-primary">
-  <div class="box-header with-border">
+<!--<div class="box box-solid box-primary">
+  <div class="box-header with-border">-->
     <h3 class="box-title"><i class="fa fa-book"></i> Daftar Buku</h3>
 <form action="" method="get">
 <select name="kat">
-<option value="a.id_buku">ID Buku</option>
-<option value="a.ISBN">ISBN</option>
-<option value="a.judul">Judul</option>
+<?php
+foreach(array('ID Buku'=>'a.id_buku','ISBN'=>'a.ISBN','Judul'=>'a.judul','Kategori'=>'b.nama_kategori','Penerbit'=>'c.nama_penerbit','Pengarang'=>'d.nama_pengarang','Rak'=>'e.nama_rak','Tahun Terbit'=>'a.thn_terbit','Stok'=>'a.stok','Keterangan'=>'a.ket') as $kk => $v)
+print '<option value="'.$v.'"'.($k===$v?' selected':'').'>'.$kk.'</option>';?>
 </select>
-<input type="text" name="q">
+<input type="text" name="q" value="<?php print $qq;?>">
 <input type="submit" value="Cari">
 </form>
 <!--    

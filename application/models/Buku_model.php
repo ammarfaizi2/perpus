@@ -3,10 +3,15 @@
 class Buku_model extends CI_Model {
 	public function search($q)
 	{
-		$this->qq = $q;
+		$this->qq = explode(' ',$q);
 	}
 	public function kategori($q){
-		$this->wheree = ' WHERE '.$q.' LIKE \'%'.addslashes(trim($this->qq)).'%\'';
+		$concat = "";
+		foreach($this->qq as $zx){
+			$concat.=' '.($q).' LIKE \'%'.addslashes(strtolower(trim($zx))).'%\' OR';
+		}
+		
+		$this->wheree = ' WHERE'.rtrim($concat,'OR');
 	}
 	//query pengambilan semua data
 	public function getAllData()

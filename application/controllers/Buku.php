@@ -23,6 +23,10 @@ if($q and !empty($q)){
 	$this->Buku_model->search($q);
 	($k and !empty($k)) and
 	$this->Buku_model->kategori($k);
+			if(!in_array($k,explode(",","a.id_buku,a.ISBN,a.judul,b.kategori,c.nama_penerbit,d.nama_pengarang,e.nama_rak,a.thn_terbit,a.stok,a.ket"))){
+			redirect(base_url()."?ref=err");
+			die();
+		}
 }
 			/*data yang ditampilkan*/
 		/*	$data['data_buku'] = $this->Buku_model->getAllData("tb_buku");
@@ -34,7 +38,7 @@ if($q and !empty($q)){
 			*/
 			/*masukan data kedalam view */
 			//$data['js']=$this->load->view('admin/buku/js');
-			$tmp['content']=$this->load->view('global/R_buku',array('data_buku'=>$this->Buku_model->getAllData()), TRUE);
+			$tmp['content']=$this->load->view('global/R_buku',array('data_buku'=>$this->Buku_model->getAllData(),'k'=>$k,'qq'=>$q), TRUE);
 			$this->load->view('global/layout',$tmp);
 		//}
 		//else
