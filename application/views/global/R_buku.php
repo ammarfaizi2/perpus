@@ -16,8 +16,8 @@
         </div>
     </div>
 <!--content -->
-<!--<div class="box box-solid box-primary">
-  <div class="box-header with-border">-->
+<div class="box box-solid box-primary">
+  <div class="box-header with-border">
     <h3 class="box-title"><i class="fa fa-book"></i> Daftar Buku</h3>
 <form action="" method="get">
 <select name="kat">
@@ -28,7 +28,7 @@ print '<option value="'.$v.'"'.($k===$v?' selected':'').'>'.$kk.'</option>';?>
 <input type="text" name="q" value="<?php print $qq;?>">
 <input type="submit" value="Cari">
 </form>
-<!--    
+
     <div class="box-tools pull-right">
     
     </div>
@@ -36,7 +36,7 @@ print '<option value="'.$v.'"'.($k===$v?' selected':'').'>'.$kk.'</option>';?>
   </div>
      <div class="box-body">
    <div class="form-group"></div>
-   -->
+   
    
    
    <table id="table-buku" class="table table-striped table-bordered" cellspacing="0" width="100%">

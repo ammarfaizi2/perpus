@@ -7,7 +7,7 @@ class Buku_model extends CI_Model {
 	}
 	public function kategori($q){
 		if($q=="a.id_buku"){
-			$concat = " ".$q."=".trim(implode(" ",$this->qq));
+			$concat = " ".$q."=".((int)addslashes(trim(implode(" ",$this->qq))));
 		} else {
 		$concat = "";
 		foreach($this->qq as $zx){
